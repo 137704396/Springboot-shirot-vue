@@ -1,0 +1,80 @@
+[
+  {
+    "path": "/system/router",
+    "component": "/system/router",
+    "name": "Router",
+    "meta": {
+      "title": "动态路由"
+    },
+    "id": 3,
+    "parent_id": 2
+  },
+  {
+    "path": "/system/button",
+    "component": "/system/button",
+    "name": "Button",
+    "meta": {
+      "title": "按钮管理"
+    },
+    "id": 6,
+    "parent_id": 2
+  },
+  {
+      "path": "/system/user-manage",
+    "name": "UserManage",
+    "component": "/system/user-manage",
+    "redirect": "noRedirect",
+    "alwaysShow": true,
+    "meta": {
+      "title": "用户管理"
+    },
+    "id": 15,
+    "parent_id": 2,
+    "children": [
+      {
+        "path": "/system/user-manage/adminuser",
+        "name": "AdminUser",
+        "component": "/system/user-manage/adminuser",
+        "meta": {
+          "title": "管理员"
+        },
+        "id": 17,
+        "parent_id": 15
+      }
+    ]
+  },
+  {
+    "path": "/system/auth-manage",
+    "name": "AuthManage",
+    "component": "/system/auth-manage",
+    "alwaysShow": true,
+    "redirect": "noRedirect",
+    "meta": {
+      "title": "权限管理"
+    },
+    "id": 18,
+    "parent_id": 2,
+    "children": [
+      {
+        "path": "/system/auth-manage/role",
+        "name": "Role",
+        "component": "/system/auth-manage/role",
+        "meta": {
+          "title": "角色管理"
+        },
+        "id": 19,
+        "parent_id": 18
+      },
+      {
+        "path": "/system/auth-manage/auth",
+        "name": "Auth",
+        "component": "/system/auth-manage/auth",
+        "meta": {
+          "title": "权限列表"
+        },
+        "id": 22,
+        "parent_id": 18
+      }
+    ]
+  }
+]
