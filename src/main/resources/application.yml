@@ -1,0 +1,56 @@
+server:
+  #  tomcat:
+  #    uri-encoding: UTF-8
+  #    max-threads: 1000
+  #    min-spare-threads: 30
+  port: 8001
+spring:
+  #  #  # jackson时间格式化
+  #  jackson:
+  #    serialization:
+  #      write-dates-as-timestamps: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+    deserialization:
+
+      read_date_timestamps_as_nanoseconds: true
+  # 数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/permission?serverTimezone=UTC
+      username: root
+      password: xiaoyan
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      #Oracle需要打开注释
+      #validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        #login-username: admin
+        #login-password: admin
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+logging:
+  level:
+    kim:
+      nzxy:
+        auth: debug
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:/mapper/**
